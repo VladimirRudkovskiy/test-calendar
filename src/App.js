@@ -29,7 +29,8 @@ class App extends Component {
 				<Calendar style={style} width="400px" 
 				onDayClick={(e, day) => this.onDayClick(e, day)}/>
 
-				<input type="button"
+				<input 
+					type="hidden"
 					onClick={this.showModal}
 					value="" />
 				<Modal
