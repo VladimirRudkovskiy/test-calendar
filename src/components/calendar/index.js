@@ -6,7 +6,8 @@ export default class Calendar extends React.Component {
 	state = {
 		dateContext: moment(),
 		today: moment(),
-		showMonthPopup: false
+		showMonthPopup: false,
+		showWeekPopup: false
 	}
 	
 	constructor(props) {
@@ -76,7 +77,7 @@ export default class Calendar extends React.Component {
 
 	}
 
-	SelectList = (props) => { //окно,Ю которое выводит на экран список менсяцев
+	SelectList = (props) => { //окно, которое выводит на экран список менсяцев
 		let popup = props.data.map((data) => {
 			return (
 				<div key={data}>

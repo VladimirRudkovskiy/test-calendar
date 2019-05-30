@@ -1,5 +1,12 @@
 import React from 'react';
 
+
+const inpKey = document.getElementById("inpKey");
+const btnInsert = document.getElementById("btnInsert");
+const lsOutput = document.getElementById("lsOutput");
+const inpValue = document.getElementById("inpValue");
+
+
 const backdropStyle = {
 	position: 'fixed',
 	top: 0,
@@ -67,13 +74,16 @@ export default class Modal extends React.Component{
 		return(
 			<div style={backdropStyle}>
 			<div style={modalStyle}>
-			<td colSpan="5">
-				Enter Your Event
-			</td>
-				<input
-					type="text"
-					value={this.state.value}
-					onChange={this.handleChange} />
+		<fieldset>
+					<legend>Enter Your Event</legend>
+						<input id="inpKey" type="text" placeholder="Enter Event..."></input>
+						<input id="inpValue" type="text" placeholder="Enter Time..."></input>
+						<button type="button" id="btnInsert">Add Event</button>
+				</fieldset>
+				<fieldset>
+					<legend>your Events: </legend>
+					<div id="lsOutput"></div>
+				</fieldset>
 				{this.props.children}
 
 				<div style={footerStyle}>

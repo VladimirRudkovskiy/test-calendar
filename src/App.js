@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import Calendar from './components/calendar';
 import Modal from './components/Modal/Modal'
+import WeekCalendar from './components/calendar/WeekCalendar/WeekCalendar'
 
 const style = {
 	position: "relative",
@@ -26,6 +27,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+				<WeekCalendar/>
 				<Calendar style={style} width="400px" 
 				onDayClick={(e, day) => this.onDayClick(e, day)}/>
 
