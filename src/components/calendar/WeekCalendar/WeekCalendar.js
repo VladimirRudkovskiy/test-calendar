@@ -124,8 +124,8 @@ class WeekCalendar extends React.Component {
         left: e.target.scrollLeft,
       },
     });
-  }
-
+	}
+	
   handleCellMouseEnter = (col, row) => {
     if (this.state.startSelectionPosition != null) {
       this.setState({

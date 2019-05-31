@@ -1,12 +1,6 @@
 import React from 'react';
 
 
-const inpKey = document.getElementById("inpKey");
-const btnInsert = document.getElementById("btnInsert");
-const lsOutput = document.getElementById("lsOutput");
-const inpValue = document.getElementById("inpValue");
-
-
 const backdropStyle = {
 	position: 'fixed',
 	top: 0,
@@ -40,6 +34,7 @@ export default class Modal extends React.Component{
 		super(props);
 		this.state = {value: ""};
 		this.handleChange = this.handleChange.bind(this);
+		this.handleSubmit = this.handleSubmit.bind(this);
 	}
 
 
@@ -49,7 +44,14 @@ export default class Modal extends React.Component{
 	}
 
 	handleChange(event) {
-		this.setState({value: event.target.value})
+		this.setState({value: event.target.value.toUpperCase()})
+
+		console.log('value')
+	}
+
+	handleSubmit(event) {
+		alert('An event was submitted: ' + this.state.value);
+		event.preventDefault();
 	}
 
 
@@ -74,16 +76,13 @@ export default class Modal extends React.Component{
 		return(
 			<div style={backdropStyle}>
 			<div style={modalStyle}>
-		<fieldset>
-					<legend>Enter Your Event</legend>
-						<input id="inpKey" type="text" placeholder="Enter Event..."></input>
-						<input id="inpValue" type="text" placeholder="Enter Time..."></input>
-						<button type="button" id="btnInsert">Add Event</button>
-				</fieldset>
-				<fieldset>
-					<legend>your Events: </legend>
-					<div id="lsOutput"></div>
-				</fieldset>
+		<form onSubmit={this.handleSubmit}>
+			<label>
+				Enter Event:
+				<input type="text" value={this.state.value} onChange={this.handleChange} />
+			</label>
+			<input type="submit" value="submit" />
+		</form>
 				{this.props.children}
 
 				<div style={footerStyle}>

@@ -24,12 +24,24 @@ class App extends Component {
 			show: !this.state.show
 		})
 	}
+	showWeeks = () => {
+		this.setState({
+			...this.state,
+			show: !this.state.show
+		})
+	}
+
+
   render() {
     return (
       <div className="App">
-				<WeekCalendar/>
+				
 				<Calendar style={style} width="400px" 
 				onDayClick={(e, day) => this.onDayClick(e, day)}/>
+				<WeekCalendar 
+				onClose={this.showWeeks}
+				show={this.state.show}>
+				</WeekCalendar>
 
 				<input 
 					type="hidden"
